@@ -131,6 +131,32 @@
       border-radius: 20px;
     }
 
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 40px 80px 40px;
+    }
+
+    .section-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin: 0 0 18px 0;
+    }
+
+    .section-text {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #c7d4e2;
+      max-width: 900px;
+    }
+
     @media (max-width: 950px) {
       .hero {
         flex-direction: column-reverse;
@@ -176,7 +202,7 @@
           <div class="tag">Remote Sensing</div>
           <div class="tag">Hydrology</div>
           <div class="tag">Machine Learning</div>
-          <div class="tag">Risk & Hazard</div>
+          <div class="tag">Risk &amp; Hazard</div>
           <div class="tag">Time Series</div>
         </div>
 
@@ -193,5 +219,20 @@
       </div>
     </section>
   </div>
+
+  <section class="section">
+    <div class="section-card">
+      <h2 class="section-title">About Me</h2>
+      <div class="section-text">
+        I am a researcher and data scientist with a background in civil engineering,
+        environmental engineering, and geodesy. My work focuses on Earth observation,
+        satellite hydrology, machine learning, time series analysis, and uncertainty-aware modeling.
+        <br><br>
+        I have worked extensively with satellite altimetry, GRACE observations, river discharge estimation,
+        total water storage analysis, and geospatial data products. I am especially interested in translating
+        these quantitative and scientific skills into real-world applications in risk, hazard, and insurance analytics.
+      </div>
+    </div>
+  </section>
 </body>
 </html>
