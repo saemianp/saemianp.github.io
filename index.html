@@ -138,7 +138,7 @@
     .section {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 40px 80px 40px;
+      padding: 50px 40px 100px 40px;
     }
 
     .section-card {
@@ -159,6 +159,13 @@
       line-height: 1.8;
       color: #c7d4e2;
       max-width: 900px;
+    }
+
+    .projects-area {
+      background: rgba(255,255,255,0.02);
+      border-radius: 28px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .projects-grid {
@@ -218,6 +225,54 @@
       color: #cfe8ff;
     }
 
+    .highlight-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+    }
+
+    .highlight-subtitle {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8fcfff;
+      margin-bottom: 14px;
+    }
+
+    .highlight-title {
+      font-size: 30px;
+      margin: 0 0 18px 0;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .highlight-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .highlight-block h4 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      color: #dff1ff;
+    }
+
+    .highlight-block p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #c4d3e0;
+    }
+
     @media (max-width: 950px) {
       .hero {
         flex-direction: column-reverse;
@@ -245,7 +300,8 @@
         width: 260px;
       }
 
-      .projects-grid {
+      .projects-grid,
+      .highlight-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -301,45 +357,87 @@
   </section>
 
   <section class="section" id="projects">
-    <h2 class="section-title">Selected Projects</h2>
+    <div class="projects-area">
+      <h2 class="section-title">Selected Projects</h2>
 
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-label">Project</div>
-        <h3 class="project-title">ESA River Discharge</h3>
-        <div class="project-text">
-          Estimating river discharge using satellite-derived variables such as water level, river width, and remote sensing observations for large-scale hydrological monitoring.
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-label">Project</div>
+          <h3 class="project-title">ESA River Discharge</h3>
+          <div class="project-text">
+            Estimating river discharge using satellite-derived variables such as water level, river width, and remote sensing observations for large-scale hydrological monitoring.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Satellite Altimetry</span>
+            <span class="project-tag">Hydrology</span>
+            <span class="project-tag">Discharge Estimation</span>
+          </div>
         </div>
-        <div class="project-tags">
-          <span class="project-tag">Satellite Altimetry</span>
-          <span class="project-tag">Hydrology</span>
-          <span class="project-tag">Discharge Estimation</span>
+
+        <div class="project-card">
+          <div class="project-label">Project</div>
+          <h3 class="project-title">ML-TWiX</h3>
+          <div class="project-text">
+            A machine-learning-based global extension of total water storage anomalies, designed to reconstruct long-term water storage variability beyond the GRACE era.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Machine Learning</span>
+            <span class="project-tag">GRACE</span>
+            <span class="project-tag">Time Series</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-label">Project</div>
+          <h3 class="project-title">EO4Flood</h3>
+          <div class="project-text">
+            Contributing to Earth observation workflows for flood-related analysis by integrating geospatial data, hydrological insight, and remote sensing products.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Flood</span>
+            <span class="project-tag">Earth Observation</span>
+            <span class="project-tag">Risk Applications</span>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="project-card">
-        <div class="project-label">Project</div>
-        <h3 class="project-title">ML-TWiX</h3>
-        <div class="project-text">
-          A machine-learning-based global extension of total water storage anomalies, designed to reconstruct long-term water storage variability beyond the GRACE era.
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">Machine Learning</span>
-          <span class="project-tag">GRACE</span>
-          <span class="project-tag">Time Series</span>
-        </div>
+  <section class="section">
+    <div class="highlight-card">
+      <div class="highlight-subtitle">Project Highlight</div>
+      <h2 class="highlight-title">ML-TWiX — Extending Water Storage Records Beyond GRACE</h2>
+      <div class="section-text">
+        ML-TWiX is a global machine-learning-based dataset developed to reconstruct total water storage anomalies before the GRACE satellite era. This work combines model-based information and data-driven methods to extend hydrological records in space and time.
       </div>
 
-      <div class="project-card">
-        <div class="project-label">Project</div>
-        <h3 class="project-title">EO4Flood</h3>
-        <div class="project-text">
-          Contributing to Earth observation workflows for flood-related analysis by integrating geospatial data, hydrological insight, and remote sensing products.
+      <div class="highlight-grid">
+        <div class="highlight-block">
+          <h4>The challenge</h4>
+          <p>
+            GRACE and GRACE-FO provide unique observations of large-scale water storage changes, but their time coverage is limited. Many climate and hydrology questions need longer records than the satellite era alone can provide.
+          </p>
         </div>
-        <div class="project-tags">
-          <span class="project-tag">Flood</span>
-          <span class="project-tag">Earth Observation</span>
-          <span class="project-tag">Risk Applications</span>
+
+        <div class="highlight-block">
+          <h4>My contribution</h4>
+          <p>
+            I developed and evaluated reconstruction workflows using multiple models and machine learning methods, compared their performance across regions and basins, and worked on producing a global gridded dataset with uncertainty information.
+          </p>
+        </div>
+
+        <div class="highlight-block">
+          <h4>Methods and tools</h4>
+          <p>
+            Machine learning, time series analysis, geospatial data processing, uncertainty-aware evaluation, MATLAB, Python, GRACE-based analysis, and large-scale hydrological model integration.
+          </p>
+        </div>
+
+        <div class="highlight-block">
+          <h4>Why it matters</h4>
+          <p>
+            Longer water storage records can support climate analysis, hydrological monitoring, drought and flood interpretation, and broader risk-relevant understanding of environmental variability.
+          </p>
         </div>
       </div>
     </div>
