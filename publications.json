@@ -1,23 +1,50 @@
-[
-  {
-    "year": 2026,
-    "type": "Journal Article",
-    "title": "A Machine Learning approach for Total Water storage anomaly eXtension back to 1980 (ML-TWiX)",
-    "journal": "Scientific Data",
-    "summary": "A data-focused publication on extending total water storage anomaly records using machine learning and model-based predictors."
-  },
-  {
-    "year": 2025,
-    "type": "Journal Article",
-    "title": "Black Sea level variability and its driving factors in the last two decades",
-    "journal": "Geophysical Journal International",
-    "summary": "Analysis of Black Sea level variability and its physical drivers over the last two decades."
-  },
-  {
-    "year": 2023,
-    "type": "Journal Article",
-    "title": "A copula-supported Bayesian framework for spatial downscaling of GRACE-derived terrestrial water storage flux",
-    "journal": "Remote Sensing of Environment",
-    "summary": "A methodological contribution combining Bayesian ideas and spatial downscaling for GRACE-derived hydrological signals."
-  }
-]
+{
+  "journals": [
+    {
+      "title": "A Machine Learning approach for Total Water storage anomaly eXtension back to 1980 (ML-TWiX)",
+      "authors": "Saemian, P. and co-authors",
+      "venue": "Scientific Data",
+      "year": 2026,
+      "link": "#"
+    },
+    {
+      "title": "Black Sea level variability and its driving factors in the last two decades",
+      "authors": "Saemian, P. and co-authors",
+      "venue": "Geophysical Journal International",
+      "year": 2025,
+      "link": "#"
+    },
+    {
+      "title": "A copula-supported Bayesian framework for spatial downscaling of GRACE-derived terrestrial water storage flux",
+      "authors": "Saemian, P. and co-authors",
+      "venue": "Remote Sensing of Environment",
+      "year": 2023,
+      "link": "#"
+    }
+  ],
+  "conferences": [
+    {
+      "title": "Add your conference title here",
+      "authors": "Saemian, P. and co-authors",
+      "venue": "Conference name",
+      "year": 2025,
+      "link": "#"
+    }
+  ],
+  "theses": [
+    {
+      "title": "Analyzing and characterizing spaceborne observation of water storage variation: past, present, future",
+      "authors": "Peyman Saemian",
+      "venue": "PhD Thesis, University of Stuttgart",
+      "year": 2024,
+      "link": "https://elib.uni-stuttgart.de/items/2f62fa5a-6de4-482d-b4e4-eac9301f40a7"
+    },
+    {
+      "title": "Characterizing storage-based drought using satellite gravimetry",
+      "authors": "Peyman Saemian",
+      "venue": "Master Thesis, University of Stuttgart",
+      "year": 2021,
+      "link": "https://elib.uni-stuttgart.de/items/04fe63db-52cc-45b7-b627-8d97b44a9596"
+    }
+  ]
+}
