@@ -216,7 +216,6 @@
     }
 
     .projects-grid,
-    .pub-grid,
     .experience-grid,
     .contact-grid {
       display: grid;
@@ -302,6 +301,62 @@
       font-size: 15px;
     }
 
+    .pub-groups {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 26px;
+    }
+
+    .pub-group {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .pub-group-title {
+      font-size: 22px;
+      margin: 0 0 16px 0;
+      color: #dff1ff;
+    }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .pub-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .pub-item-title {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #eef7ff;
+      margin-bottom: 6px;
+    }
+
+    .pub-item-meta {
+      font-size: 14px;
+      color: #9fb6ca;
+      line-height: 1.6;
+    }
+
+    .pub-item a {
+      color: #8fd2ff;
+      text-decoration: none;
+    }
+
+    .pub-item a:hover {
+      text-decoration: underline;
+    }
+
     .footer {
       max-width: 1200px;
       margin: 0 auto;
@@ -343,7 +398,6 @@
       }
 
       .projects-grid,
-      .pub-grid,
       .experience-grid,
       .contact-grid,
       .skills-wrap {
@@ -501,12 +555,12 @@
 
   <section class="section" id="publications">
     <div class="section-subtitle">Publications</div>
-    <h2 class="section-title">Selected Publications</h2>
+    <h2 class="section-title">Publications</h2>
     <div class="section-text">
-      This section is loaded automatically from <strong>publications.json</strong>. You can update that file without touching the HTML.
+      A selected overview of journal articles, conference contributions, and theses. The entries below are loaded automatically from <strong>publications.json</strong>.
     </div>
 
-    <div class="pub-grid" id="publications-list"></div>
+    <div class="pub-groups" id="publications-groups"></div>
   </section>
 
   <section class="section" id="skills">
@@ -581,27 +635,52 @@
     async function loadPublications() {
       try {
         const response = await fetch('publications.json');
-        const publications = await response.json();
+        const data = await response.json();
+        const container = document.getElementById('publications-groups');
 
-        const container = document.getElementById('publications-list');
+        const groups = [
+          { key: 'journals', title: 'Selected Peer-Reviewed Journals' },
+          { key: 'conferences', title: 'Conferences' },
+          { key: 'theses', title: 'Theses' }
+        ];
 
-        container.innerHTML = publications.map(pub => `
-          <div class="card">
-            <div class="card-label">${pub.type || 'Publication'} · ${pub.year || ''}</div>
-            <h3 class="card-title">${pub.title || ''}</h3>
-            <div class="card-text">
-              <strong>${pub.journal || ''}</strong><br>
-              ${pub.summary || ''}
+        container.innerHTML = groups.map(group => {
+          const items = data[group.key] || [];
+
+          const listHtml = items.length
+            ? items.map(item => `
+                <div class="pub-item">
+                  <div class="pub-item-title">
+                    ${item.link ? `<a href="${item.link}" target="_blank">${item.title}</a>` : item.title}
+                  </div>
+                  <div class="pub-item-meta">
+                    ${item.authors ? `${item.authors}<br>` : ''}
+                    ${item.venue ? `${item.venue}` : ''}
+                    ${item.year ? `, ${item.year}` : ''}
+                  </div>
+                </div>
+              `).join('')
+            : `<div class="pub-item"><div class="pub-item-meta">To be added.</div></div>`;
+
+          return `
+            <div class="pub-group">
+              <h3 class="pub-group-title">${group.title}</h3>
+              <div class="pub-list">
+                ${listHtml}
+              </div>
             </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       } catch (error) {
-        document.getElementById('publications-list').innerHTML = `
-          <div class="card">
-            <div class="card-label">Error</div>
-            <h3 class="card-title">Could not load publications</h3>
-            <div class="card-text">
-              Please check that publications.json exists and is formatted correctly.
+        document.getElementById('publications-groups').innerHTML = `
+          <div class="pub-group">
+            <h3 class="pub-group-title">Could not load publications</h3>
+            <div class="pub-list">
+              <div class="pub-item">
+                <div class="pub-item-meta">
+                  Please check that publications.json exists and is formatted correctly.
+                </div>
+              </div>
             </div>
           </div>
         `;
