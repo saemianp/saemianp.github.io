@@ -391,6 +391,8 @@
         <div class="buttons">
           <a href="#projects" class="btn btn-main">View Projects</a>
           <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <a href="https://scholar.google.com/citations?user=bJ8WatgAAAAJ&hl=en&oi=ao" target="_blank" class="btn btn-secondary">Google Scholar</a>
+          <a href="#" class="btn btn-secondary">Download CV</a>
         </div>
       </div>
 
@@ -501,34 +503,10 @@
     <div class="section-subtitle">Publications</div>
     <h2 class="section-title">Selected Publications</h2>
     <div class="section-text">
-      Do not place your full publication history on the homepage. Show only a few selected publications here, and later we can make a separate publications page for the full list.
+      This section is loaded automatically from <strong>publications.json</strong>. You can update that file without touching the HTML.
     </div>
 
-    <div class="pub-grid">
-      <div class="card">
-        <div class="card-label">Journal Paper</div>
-        <h3 class="card-title">Selected Paper Title 1</h3>
-        <div class="card-text">
-          Add one important paper here with a short one-line explanation of why it is important.
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Dataset / Paper</div>
-        <h3 class="card-title">Selected Paper Title 2</h3>
-        <div class="card-text">
-          Add another important paper, dataset publication, or method paper here.
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Thesis / Major Work</div>
-        <h3 class="card-title">PhD Thesis</h3>
-        <div class="card-text">
-          Add your PhD thesis title here, or later split theses into their own subsection if you prefer.
-        </div>
-      </div>
-    </div>
+    <div class="pub-grid" id="publications-list"></div>
   </section>
 
   <section class="section" id="skills">
@@ -598,6 +576,41 @@
   <div class="footer">
     © 2026 Peyman Saemian — Personal website and professional portfolio.
   </div>
+
+  <script>
+    async function loadPublications() {
+      try {
+        const response = await fetch('publications.json');
+        const publications = await response.json();
+
+        const container = document.getElementById('publications-list');
+
+        container.innerHTML = publications.map(pub => `
+          <div class="card">
+            <div class="card-label">${pub.type || 'Publication'} · ${pub.year || ''}</div>
+            <h3 class="card-title">${pub.title || ''}</h3>
+            <div class="card-text">
+              <strong>${pub.journal || ''}</strong><br>
+              ${pub.summary || ''}
+            </div>
+          </div>
+        `).join('');
+      } catch (error) {
+        document.getElementById('publications-list').innerHTML = `
+          <div class="card">
+            <div class="card-label">Error</div>
+            <h3 class="card-title">Could not load publications</h3>
+            <div class="card-text">
+              Please check that publications.json exists and is formatted correctly.
+            </div>
+          </div>
+        `;
+        console.error(error);
+      }
+    }
+
+    loadPublications();
+  </script>
 
 </body>
 </html>
