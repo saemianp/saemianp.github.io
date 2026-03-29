@@ -23,6 +23,52 @@
       color: white;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(6, 16, 28, 0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      color: #dff1ff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #c4d6e8;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: #8fd2ff;
+    }
+
     .container {
       min-height: 78vh;
       display: flex;
@@ -150,32 +196,36 @@
     }
 
     .section-title {
-      font-size: 32px;
+      font-size: 34px;
       margin: 0 0 18px 0;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: #8fcfff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
     }
 
     .section-text {
       font-size: 18px;
       line-height: 1.8;
       color: #c7d4e2;
-      max-width: 900px;
+      max-width: 950px;
     }
 
-    .projects-area {
-      background: rgba(255,255,255,0.02);
-      border-radius: 28px;
-      padding: 30px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .projects-grid {
+    .projects-grid,
+    .pub-grid,
+    .experience-grid,
+    .contact-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 26px;
     }
 
-    .project-card {
+    .card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: 22px;
@@ -184,12 +234,12 @@
       transition: 0.2s ease;
     }
 
-    .project-card:hover {
+    .card:hover {
       transform: translateY(-4px);
       border-color: rgba(77,184,255,0.45);
     }
 
-    .project-label {
+    .card-label {
       display: inline-block;
       font-size: 12px;
       letter-spacing: 0.08em;
@@ -198,25 +248,25 @@
       margin-bottom: 12px;
     }
 
-    .project-title {
+    .card-title {
       font-size: 22px;
       margin: 0 0 12px 0;
     }
 
-    .project-text {
+    .card-text {
       font-size: 16px;
       line-height: 1.7;
       color: #c1cfdd;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .project-tags {
+    .card-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .project-tag {
+    .card-tag {
       font-size: 12px;
       padding: 8px 10px;
       border-radius: 999px;
@@ -225,55 +275,47 @@
       color: #cfe8ff;
     }
 
-    .highlight-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 28px;
-      padding: 36px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.20);
-    }
-
-    .highlight-subtitle {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #8fcfff;
-      margin-bottom: 14px;
-    }
-
-    .highlight-title {
-      font-size: 30px;
-      margin: 0 0 18px 0;
-    }
-
-    .highlight-grid {
+    .skills-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
       margin-top: 24px;
     }
 
-    .highlight-block {
-      background: rgba(255,255,255,0.03);
+    .skill-box {
+      background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 22px;
+      border-radius: 18px;
+      padding: 20px;
     }
 
-    .highlight-block h4 {
-      margin: 0 0 10px 0;
+    .skill-box h3 {
+      margin: 0 0 12px 0;
       font-size: 18px;
       color: #dff1ff;
     }
 
-    .highlight-block p {
+    .skill-box p {
       margin: 0;
-      font-size: 16px;
+      color: #c7d4e2;
       line-height: 1.7;
-      color: #c4d3e0;
+      font-size: 15px;
+    }
+
+    .footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 40px 60px 40px;
+      color: #93a8bb;
+      font-size: 14px;
     }
 
     @media (max-width: 950px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .hero {
         flex-direction: column-reverse;
         text-align: center;
@@ -301,14 +343,33 @@
       }
 
       .projects-grid,
-      .highlight-grid {
+      .pub-grid,
+      .experience-grid,
+      .contact-grid,
+      .skills-wrap {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="brand">Peyman Saemian</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="home">
     <section class="hero">
       <div class="text">
         <h1 class="name">Peyman Saemian</h1>
@@ -329,7 +390,7 @@
 
         <div class="buttons">
           <a href="#projects" class="btn btn-main">View Projects</a>
-          <a href="#" class="btn btn-secondary">Download CV</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
       </div>
 
@@ -341,106 +402,202 @@
     </section>
   </div>
 
-  <section class="section">
+  <section class="section" id="about">
     <div class="section-card">
+      <div class="section-subtitle">About</div>
       <h2 class="section-title">About Me</h2>
       <div class="section-text">
-        I am a researcher and data scientist with a background in civil engineering,
-        environmental engineering, and geodesy. My work focuses on Earth observation,
-        satellite hydrology, machine learning, time series analysis, and uncertainty-aware modeling.
+        I am a researcher and data scientist with a background in civil engineering, environmental engineering, and geodesy. My work focuses on Earth observation, satellite hydrology, machine learning, time series analysis, and uncertainty-aware modeling.
         <br><br>
-        I have worked extensively with satellite altimetry, GRACE observations, river discharge estimation,
-        total water storage analysis, and geospatial data products. I am especially interested in translating
-        these quantitative and scientific skills into real-world applications in risk, hazard, and insurance analytics.
+        This website is designed to go beyond a short CV and show selected projects, methods, publications, and technical strengths in a more detailed and useful way.
       </div>
     </div>
   </section>
 
   <section class="section" id="projects">
-    <div class="projects-area">
-      <h2 class="section-title">Selected Projects</h2>
+    <div class="section-subtitle">Projects</div>
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="section-text">
+      This section should contain your most important projects only. Later, each project can become its own detailed page or expanded block with problem, role, methods, outcomes, and relevance.
+    </div>
 
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-label">Project</div>
-          <h3 class="project-title">ESA River Discharge</h3>
-          <div class="project-text">
-            Estimating river discharge using satellite-derived variables such as water level, river width, and remote sensing observations for large-scale hydrological monitoring.
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">Satellite Altimetry</span>
-            <span class="project-tag">Hydrology</span>
-            <span class="project-tag">Discharge Estimation</span>
-          </div>
+    <div class="projects-grid">
+      <div class="card">
+        <div class="card-label">Featured Project</div>
+        <h3 class="card-title">ESA River Discharge</h3>
+        <div class="card-text">
+          Add a short overview of the project, what problem it solves, what data you used, and what your role was.
         </div>
-
-        <div class="project-card">
-          <div class="project-label">Project</div>
-          <h3 class="project-title">ML-TWiX</h3>
-          <div class="project-text">
-            A machine-learning-based global extension of total water storage anomalies, designed to reconstruct long-term water storage variability beyond the GRACE era.
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">Machine Learning</span>
-            <span class="project-tag">GRACE</span>
-            <span class="project-tag">Time Series</span>
-          </div>
+        <div class="card-tags">
+          <span class="card-tag">Satellite Altimetry</span>
+          <span class="card-tag">Hydrology</span>
+          <span class="card-tag">Discharge Estimation</span>
         </div>
+      </div>
 
-        <div class="project-card">
-          <div class="project-label">Project</div>
-          <h3 class="project-title">EO4Flood</h3>
-          <div class="project-text">
-            Contributing to Earth observation workflows for flood-related analysis by integrating geospatial data, hydrological insight, and remote sensing products.
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">Flood</span>
-            <span class="project-tag">Earth Observation</span>
-            <span class="project-tag">Risk Applications</span>
-          </div>
+      <div class="card">
+        <div class="card-label">Featured Project</div>
+        <h3 class="card-title">ML-TWiX</h3>
+        <div class="card-text">
+          Add a short overview of your machine-learning-based total water storage reconstruction work and why it matters.
+        </div>
+        <div class="card-tags">
+          <span class="card-tag">Machine Learning</span>
+          <span class="card-tag">GRACE</span>
+          <span class="card-tag">Time Series</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Featured Project</div>
+        <h3 class="card-title">EO4Flood</h3>
+        <div class="card-text">
+          Add a short overview of your flood-related Earth observation work and its risk or hazard relevance.
+        </div>
+        <div class="card-tags">
+          <span class="card-tag">Flood</span>
+          <span class="card-tag">Earth Observation</span>
+          <span class="card-tag">Risk Applications</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="highlight-card">
-      <div class="highlight-subtitle">Project Highlight</div>
-      <h2 class="highlight-title">ML-TWiX — Extending Water Storage Records Beyond GRACE</h2>
-      <div class="section-text">
-        ML-TWiX is a global machine-learning-based dataset developed to reconstruct total water storage anomalies before the GRACE satellite era. This work combines model-based information and data-driven methods to extend hydrological records in space and time.
+  <section class="section" id="experience">
+    <div class="section-subtitle">Experience</div>
+    <h2 class="section-title">Selected Experience</h2>
+    <div class="section-text">
+      This section should not be a full CV dump. It should summarize your most important roles and what you actually contributed in each.
+    </div>
+
+    <div class="experience-grid">
+      <div class="card">
+        <div class="card-label">Role</div>
+        <h3 class="card-title">Postdoctoral Researcher</h3>
+        <div class="card-text">
+          Add institute name, years, and 3 to 4 strong contribution points about modeling, Earth observation, machine learning, and hydrology.
+        </div>
       </div>
 
-      <div class="highlight-grid">
-        <div class="highlight-block">
-          <h4>The challenge</h4>
-          <p>
-            GRACE and GRACE-FO provide unique observations of large-scale water storage changes, but their time coverage is limited. Many climate and hydrology questions need longer records than the satellite era alone can provide.
-          </p>
+      <div class="card">
+        <div class="card-label">Role</div>
+        <h3 class="card-title">PhD Researcher</h3>
+        <div class="card-text">
+          Add the focus of your doctoral work, major outputs, methods, and international collaborations if relevant.
         </div>
+      </div>
 
-        <div class="highlight-block">
-          <h4>My contribution</h4>
-          <p>
-            I developed and evaluated reconstruction workflows using multiple models and machine learning methods, compared their performance across regions and basins, and worked on producing a global gridded dataset with uncertainty information.
-          </p>
-        </div>
-
-        <div class="highlight-block">
-          <h4>Methods and tools</h4>
-          <p>
-            Machine learning, time series analysis, geospatial data processing, uncertainty-aware evaluation, MATLAB, Python, GRACE-based analysis, and large-scale hydrological model integration.
-          </p>
-        </div>
-
-        <div class="highlight-block">
-          <h4>Why it matters</h4>
-          <p>
-            Longer water storage records can support climate analysis, hydrological monitoring, drought and flood interpretation, and broader risk-relevant understanding of environmental variability.
-          </p>
+      <div class="card">
+        <div class="card-label">Role</div>
+        <h3 class="card-title">Earlier Background</h3>
+        <div class="card-text">
+          Briefly connect civil engineering, environmental engineering, and research experience into one consistent story.
         </div>
       </div>
     </div>
   </section>
+
+  <section class="section" id="publications">
+    <div class="section-subtitle">Publications</div>
+    <h2 class="section-title">Selected Publications</h2>
+    <div class="section-text">
+      Do not place your full publication history on the homepage. Show only a few selected publications here, and later we can make a separate publications page for the full list.
+    </div>
+
+    <div class="pub-grid">
+      <div class="card">
+        <div class="card-label">Journal Paper</div>
+        <h3 class="card-title">Selected Paper Title 1</h3>
+        <div class="card-text">
+          Add one important paper here with a short one-line explanation of why it is important.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Dataset / Paper</div>
+        <h3 class="card-title">Selected Paper Title 2</h3>
+        <div class="card-text">
+          Add another important paper, dataset publication, or method paper here.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Thesis / Major Work</div>
+        <h3 class="card-title">PhD Thesis</h3>
+        <div class="card-text">
+          Add your PhD thesis title here, or later split theses into their own subsection if you prefer.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-subtitle">Skills</div>
+    <h2 class="section-title">Technical Strengths</h2>
+    <div class="section-text">
+      This section should help visitors quickly understand what tools, methods, and domains you work with.
+    </div>
+
+    <div class="skills-wrap">
+      <div class="skill-box">
+        <h3>Programming</h3>
+        <p>MATLAB, Python, Git, scientific computing, data processing</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Methods</h3>
+        <p>Machine learning, time series analysis, statistics, uncertainty analysis</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Earth Observation</h3>
+        <p>Satellite altimetry, GRACE, remote sensing, geospatial products</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Applications</h3>
+        <p>Hydrology, water storage, river discharge, hazard and risk analytics</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-subtitle">Contact</div>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="section-text">
+      This section should contain your email, GitHub, LinkedIn, CV link, and any other professional contact method you want to share.
+    </div>
+
+    <div class="contact-grid">
+      <div class="card">
+        <div class="card-label">Email</div>
+        <h3 class="card-title">Professional Email</h3>
+        <div class="card-text">
+          Add your email address here.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">GitHub</div>
+        <h3 class="card-title">Code &amp; Projects</h3>
+        <div class="card-text">
+          Add your GitHub profile link here.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">LinkedIn / CV</div>
+        <h3 class="card-title">Professional Profile</h3>
+        <div class="card-text">
+          Add your LinkedIn and CV download link here.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2026 Peyman Saemian — Personal website and professional portfolio.
+  </div>
+
 </body>
 </html>
