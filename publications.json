@@ -1,0 +1,23 @@
+[
+  {
+    "year": 2026,
+    "type": "Journal Article",
+    "title": "A Machine Learning approach for Total Water storage anomaly eXtension back to 1980 (ML-TWiX)",
+    "journal": "Scientific Data",
+    "summary": "A data-focused publication on extending total water storage anomaly records using machine learning and model-based predictors."
+  },
+  {
+    "year": 2025,
+    "type": "Journal Article",
+    "title": "Black Sea level variability and its driving factors in the last two decades",
+    "journal": "Geophysical Journal International",
+    "summary": "Analysis of Black Sea level variability and its physical drivers over the last two decades."
+  },
+  {
+    "year": 2023,
+    "type": "Journal Article",
+    "title": "A copula-supported Bayesian framework for spatial downscaling of GRACE-derived terrestrial water storage flux",
+    "journal": "Remote Sensing of Environment",
+    "summary": "A methodological contribution combining Bayesian ideas and spatial downscaling for GRACE-derived hydrological signals."
+  }
+]
