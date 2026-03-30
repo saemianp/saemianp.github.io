@@ -216,8 +216,7 @@
     }
 
     .projects-grid,
-    .experience-grid,
-    .contact-grid {
+    .experience-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
@@ -257,16 +256,6 @@
       line-height: 1.7;
       color: #c1cfdd;
       margin-bottom: 16px;
-    }
-
-    .card-text a {
-      color: #8fd2ff;
-      text-decoration: none;
-      word-break: break-word;
-    }
-
-    .card-text a:hover {
-      text-decoration: underline;
     }
 
     .card-tags {
@@ -367,6 +356,24 @@
       text-decoration: underline;
     }
 
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-top: 10px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      color: #dff1ff;
+    }
+
+    .contact-links a:hover {
+      color: #8fd2ff;
+    }
+
     .footer {
       max-width: 1200px;
       margin: 0 auto;
@@ -409,9 +416,13 @@
 
       .projects-grid,
       .experience-grid,
-      .contact-grid,
       .skills-wrap {
         grid-template-columns: 1fr;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        gap: 14px;
       }
     }
   </style>
@@ -607,39 +618,15 @@
     <div class="section-subtitle">Contact</div>
     <h2 class="section-title">Get in Touch</h2>
     <div class="section-text">
-      I am open to professional connections, collaborations, and opportunities related to Earth observation, geospatial analytics, hydrology, climate-related applications, and risk-oriented data science.
+      Feel free to reach out or connect with me through the links below.
     </div>
 
-    <div class="contact-grid">
-      <div class="card">
-        <div class="card-label">Direct Contact</div>
-        <h3 class="card-title">Email, Phone, Location</h3>
-        <div class="card-text">
-          <a href="mailto:peyman.saemian@gmail.com">peyman.saemian@gmail.com</a><br><br>
-          <a href="mailto:saemian.peyman@gmail.com">saemian.peyman@gmail.com</a><br><br>
-          <a href="tel:+4917624002051">+49 176 2400 2051</a><br><br>
-          Filderstadt (Stuttgart), Germany
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Profiles</div>
-        <h3 class="card-title">GitHub, Scholar, LinkedIn</h3>
-        <div class="card-text">
-          <a href="https://github.com/peymansaemian" target="_blank">GitHub Profile</a><br><br>
-          <a href="https://scholar.google.com/citations?user=bJ8WatgAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a><br><br>
-          <a href="https://www.linkedin.com/in/PeymanSaemian/" target="_blank">LinkedIn</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Professional Links</div>
-        <h3 class="card-title">Website and Institutional Page</h3>
-        <div class="card-text">
-          <a href="https://saemianp.github.io" target="_blank">Personal Website</a><br><br>
-          <a href="https://gis.uni-stuttgart.de/team/Saemian/" target="_blank">University of Stuttgart Profile</a><br><br>
-          <a href="#" target="_blank">CV PDF</a>
-        </div>
+    <div class="section-card" style="margin-top: 26px;">
+      <div class="contact-links">
+        <a href="mailto:saemian.peyman@gmail.com">✉️ Email</a>
+        <a href="https://www.linkedin.com/in/PeymanSaemian/" target="_blank">🔗 LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=bJ8WatgAAAAJ&hl=en&oi=ao" target="_blank">🎓 Google Scholar</a>
+        <a href="https://gis.uni-stuttgart.de/team/Saemian/" target="_blank">🌐 GIS Uni Stuttgart</a>
       </div>
     </div>
   </section>
